@@ -1,3 +1,8 @@
+// CSV Read - Selenium IDE Core extension
+// Abhishek Jain
+// http://openselenium.com/
+// https://github.com/abhijain2618/csvreader
+// Update: 2016-11-08 Delimiter https://github.com/stanoba/csvreader
 
     // global array
     array = new Array();
