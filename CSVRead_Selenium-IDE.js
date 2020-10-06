@@ -1,3 +1,8 @@
+// CSV Read - Selenium IDE Core extension
+// Abhishek Jain
+// http://openselenium.com/
+// https://github.com/abhijain2618/csvreader
+// Update: 2016-11-08 Delimiter https://github.com/stanoba/csvreader
 
     // global array
     array = new Array();
@@ -10,17 +15,22 @@
         var value = array[x][y];
         storedVars[variableName] = value;
 
+
     }
 
     // ================================================================================
-    Selenium.prototype.doReadCSV = function(xmlpath)
+    Selenium.prototype.doReadCSV = function(xmlpath,Delimiter)
     {           
         var filedata = null;
         loader = new FileReader();
         var xmlHttpReq = loader.getIncludeDocumentBySynchronRequest(xmlpath);
         LOG.info("Reading from: " + xmlpath);
         filedata = xmlHttpReq.responseText; //CSV Doc data
-        array = CSVToArray (filedata);
+        array = CSVToArray(filedata,Delimiter);
+
+		var lines = array.length;
+		storedVars['LinesCount'] = lines;
+        LOG.info("lines count: " + lines);
             
     }
     // ==================== File Reader ====================
